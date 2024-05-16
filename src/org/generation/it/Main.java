@@ -6,19 +6,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		final int DISTRIBUTORE =2;
+		final int DISTRIBUTORE = 2;
 		String[] codice = new String[DISTRIBUTORE];
 		float[] prezzo = new float[DISTRIBUTORE];
 		int[] quantità = new int[DISTRIBUTORE];
 
-		int i, j =0, imputGest; 
-		float soldi, resto, indiceProdotto = 0, quantitàProdotto = 0; 
+		int i, j = 0, imputGest;
+		float soldi, resto, indiceProdotto = 0, quantitàProdotto = 0;
 		boolean trovato;
-		String daCercare, risposta, codiceInserito, rispostaGest; 
+		String daCercare, risposta, codiceInserito, rispostaGest;
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("BENVENUTO, selezionare prodotto ");
-		
+
 		do {
 			System.out.print("Digitare il codice gestore: "); // eliminare
 			codiceInserito = sc.nextLine();
@@ -28,44 +28,41 @@ public class Main {
 				System.out.println("Codice errato passerai al lato utente");
 				break;
 			}
-		System.out.println("Cosa vuoi fare oggi? ");
-		
-		int[] numeroMenu = {1, 2, 3, 4, 5, 6, 7};
-		String[] nomiMenu = {"modificaSlot", "incasso", "restoMax", "resetSlot", "qtaVenduta", "disabilita", "reset"};
-		
-		for (j = 0; j < numeroMenu.length; j++)
-			System.out.println("" + numeroMenu[j] + " " + nomiMenu[j]);
+			System.out.println("Cosa vuoi fare oggi? ");
 
-		do {
-		System.out.println("selezionare il numero del menu: ");
-		imputGest=sc.nextInt();
-		sc.nextLine();
-		
-		
-			
-		
-		if (imputGest ==1) {
-		for (i = 0; i < codice.length; i++) {
-			System.out.print("Inserisci il codice da dare al prodotto nella posizione " + i + " : " );
-			codice[i] = sc.nextLine();
+			int[] numeroMenu = { 1, 2, 3, 4, 5, 6, 7 };
+			String[] nomiMenu = { "modificaSlot", "incasso", "restoMax", "resetSlot", "qtaVenduta", "disabilita",
+					"reset" };
 
-			System.out.print("Inserisci il prezzo di " + codice[i] + ": ");
-			prezzo[i] = sc.nextFloat();
+			for (j = 0; j < numeroMenu.length; j++)
+				System.out.println("" + numeroMenu[j] + " " + nomiMenu[j]);
 
-			System.out.print("Inserisci la quantità di " + codice[i] + ": ");
-			quantità[i] = sc.nextInt();
-			sc.nextLine();
-			quantitàProdotto = quantità[i];
-		}
-		}
-		System.out.println("Vuoi tornare al menu?");
-		rispostaGest=sc.next();
-		} while (rispostaGest.equalsIgnoreCase("si"));
-		
+			do {
+				System.out.println("selezionare il numero del menu: ");
+				imputGest = sc.nextInt();
+				sc.nextLine();
+
+				if (imputGest == 1) {
+					for (i = 0; i < codice.length; i++) {
+						System.out.print("Inserisci il codice da dare al prodotto nella posizione " + i + " : ");
+						codice[i] = sc.nextLine();
+
+						System.out.print("Inserisci il prezzo di " + codice[i] + ": ");
+						prezzo[i] = sc.nextFloat();
+
+						System.out.print("Inserisci la quantità di " + codice[i] + ": ");
+						quantità[i] = sc.nextInt();
+						sc.nextLine();
+						quantitàProdotto = quantità[i];
+					}
+				}
+				System.out.println("Vuoi tornare al menu?");
+				rispostaGest = sc.next();
+			} while (rispostaGest.equalsIgnoreCase("si"));
+
 		} while (!codiceInserito.equals("15237"));
 		do {
 
-			
 			daCercare = sc.nextLine();
 			trovato = false;
 			for (i = 0; i < codice.length; i++) {
