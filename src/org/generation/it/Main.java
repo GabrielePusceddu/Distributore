@@ -12,7 +12,7 @@ public class Main {
 		int[] quantità = new int[DISTRIBUTORE];
 
 		int i, j = 0, imputGest;
-		float soldi, resto, indiceProdotto = 0, quantitàProdotto = 0;
+		float soldi, resto, indiceProdotto = 0, quantitàProdotto = 0, saldo = 100;
 		boolean trovato;
 		String daCercare, risposta, codiceInserito, rispostaGest;
 		Scanner sc = new Scanner(System.in);
@@ -38,7 +38,7 @@ public class Main {
 				System.out.println("" + numeroMenu[j] + " " + nomiMenu[j]);
 
 			do {
-				System.out.println("selezionare il numero del menu: ");
+				System.out.print("selezionare il numero del menu: ");
 				imputGest = sc.nextInt();
 				sc.nextLine();
 
@@ -55,8 +55,16 @@ public class Main {
 						sc.nextLine();
 						quantitàProdotto = quantità[i];
 					}
+				} else if (imputGest == 2) {
+					System.out.print("Il salso totale è " + saldo + " vuoi prelevarlo? ");
+					rispostaGest = sc.next();
+					if (rispostaGest.equalsIgnoreCase("si")) {
+						System.out.println("hai prelevato " + saldo);
+					} else {
+					}
 				}
-				System.out.println("Vuoi tornare al menu?");
+
+				System.out.print("Vuoi tornare al menu? ");
 				rispostaGest = sc.next();
 			} while (rispostaGest.equalsIgnoreCase("si"));
 
@@ -83,10 +91,12 @@ public class Main {
 				if (soldi == indiceProdotto) {
 					System.out.println("Esce il prodotto");
 					quantitàProdotto--;
+					saldo = saldo + indiceProdotto;
 				} else if (soldi > indiceProdotto) {
 					System.out.println("Esce il prodotto con il resto");
 					resto = soldi - indiceProdotto;
 					quantitàProdotto--;
+					saldo = saldo + indiceProdotto;
 					System.out.println("Il resto è " + resto);
 				} else if (soldi < indiceProdotto)
 					System.out.println("I soldi non sono sufficienti, il prezzo è " + indiceProdotto);
