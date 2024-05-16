@@ -12,7 +12,7 @@ public class Main {
 		int[] quantità = new int[DISTRIBUTORE];
 
 		int i, j = 0, imputGest;
-		float soldi, resto, indiceProdotto = 0, quantitàProdotto = 0, saldo = 100;
+		float soldi, resto, indiceProdotto = 0, quantitàProdotto = 0, saldo = 100, restoMax = 5;
 		boolean trovato;
 		String daCercare, risposta, codiceInserito, rispostaGest;
 		Scanner sc = new Scanner(System.in);
@@ -63,12 +63,28 @@ public class Main {
 					} else {
 					}
 				}
-
+				else if (imputGest == 3) {
+					System.out.println("Il resto massimo è " + restoMax + " vuoi modificarlo? ");
+					rispostaGest = sc.next();
+					if (rispostaGest.equalsIgnoreCase("si")) {
+						System.out.println("Inserisci nuovo resto massimo: ");
+						restoMax = sc.nextFloat();
+						sc.nextLine();
+						System.out.println("Il nuovo resto massimo è " + restoMax);
+					} else {
+						
+					}
+				}
+				
+				
+				
 				System.out.print("Vuoi tornare al menu? ");
 				rispostaGest = sc.next();
 			} while (rispostaGest.equalsIgnoreCase("si"));
 
 		} while (!codiceInserito.equals("15237"));
+		
+		
 		do {
 
 			daCercare = sc.nextLine();
